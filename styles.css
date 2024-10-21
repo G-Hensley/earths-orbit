@@ -1,0 +1,239 @@
+/* Global Variables */
+:root {
+    --accent-color: #433D8B;
+    --font-color: #C8ACD6;
+    --primary-color: #17153B;
+    --secondary-color: #2E236C;
+}
+
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    background-color: black;
+    height: 100%;
+    overflow: hidden;
+    width: 100vw;
+}
+
+/* Background Image Container */
+.bg-img-container {
+    animation: bg-scroll 20s linear infinite, opacity-control 4s linear infinite alternate;
+    height: 300vh;
+    left: 0;
+    position: relative;
+    width: 100%;
+}
+
+/* Background Image */
+.bg-img {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100vw;
+}
+
+/* Animation for the background image */
+@keyframes bg-scroll {
+    from {
+        top: 0;
+    }
+    to {
+        top: -100.2vh;
+    }
+}
+
+@keyframes opacity-control {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.4;
+    }
+}
+
+/* Button for viewing earth's orbit/animation */
+#action-btn {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 0;
+    box-shadow: 5px 5px var(--secondary-color);
+    color: var(--font-color);
+    cursor: pointer;
+    height: 80px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.6rem;
+    font-weight: 500;
+    left: 50%;
+    margin: -40px -160px;
+    position: absolute;
+    top: 50%;
+    transition: all 0.1s;
+    width: 320px;
+    z-index: 1;
+}
+
+/* The button grows when hovering */
+#action-btn:hover {
+    transform: scale(1.1);
+}
+
+/* The button shrinks and changes color when clicked */
+#action-btn:active {
+    background-color: var(--accent-color);
+    transform: scale(1);
+}
+
+/* A class to hide the action button */
+.hidden-btn {
+    animation: hide-btn 1.5s ease forwards;
+}
+
+@keyframes hide-btn {
+    to {
+        transform: scale(0.05);
+        visibility: hidden;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Styles for the sun that is a div */
+#sun {
+    animation: glowing-sun 1s linear infinite alternate;
+    background-image: radial-gradient(rgb(255, 50, 50), orange);
+    border-radius: 50%;
+    box-shadow: 0 0 50px orange;
+    height: 200px;
+    left: 50%;
+    margin: -100px;
+    position: absolute;
+    top: 50%;
+    width: 200px;
+}
+
+@keyframes glowing-sun {
+    from {
+        box-shadow: 0 0 50px orange;
+    }
+
+    to {
+        box-shadow: 0 0 30px orange;
+    }
+}
+
+/* Styles for the earths orbit so that the earth can rotate correctly around the sun */
+#earths-orbit {
+    animation: revolving-earth 50s linear infinite;
+    border-radius: 50%;
+    height: 850px;
+    left: 50%;
+    margin: -425px -350px;
+    position: absolute;
+    top: 50%;
+    width: 700px;
+}
+
+@keyframes revolving-earth {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+/* Styles for the earth image */
+#earth {
+    animation: rotate-earth 10s linear infinite;
+    position: absolute;
+    top: 50%;
+    width: 80px;
+}
+
+@keyframes rotate-earth {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+/* Styles for the moons orbit */
+#moons-orbit {
+    animation: revolving-moon 6s linear infinite;
+    border-radius: 50%;
+    height: 120px;
+    margin: -3%;
+    position: absolute;
+    top: 50%;
+    width: 120px;
+}
+
+@keyframes revolving-moon {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+#moon {
+    animation: rotate-moon 8s linear infinite;
+    margin: -8%;
+    position: absolute;
+    width: 30px;
+}
+
+@keyframes rotate-moon {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#copyright {
+    bottom: 0;
+    color: white;
+    padding-bottom: 1rem;
+    position: absolute;
+    text-align: center;
+    width: 100vw;
+    z-index: 3;
+}
+
+@media screen and (max-width: 850px) {
+    #sun {
+        height: 80px;
+        margin: -40px;
+        width: 80px;
+    }
+
+    #earths-orbit {
+        height: 300px;
+        margin: -150px -125px;
+        width: 250px;
+    }
+
+    #earth {
+        width: 40px;
+    }
+
+    #moons-orbit {
+        height: 70px;
+        margin: -7%;
+        width: 70px;
+    }
+
+    #moon {
+        width: 20px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #action-btn {
+        font-size: 1.2rem;
+        margin: -40px -125px;
+        width: 250px;
+    }
+}
