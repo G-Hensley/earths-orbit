@@ -195,11 +195,21 @@ html, body {
 #copyright {
     bottom: 0;
     color: white;
+    font-size: 1.1rem;
     padding-bottom: 1rem;
     position: absolute;
     text-align: center;
     width: 100vw;
     z-index: 3;
+}
+
+.copyright-link {
+    color: white;
+    transition: all 0.2s;
+}
+
+.copyright-link:hover {
+    color: var(--accent-color);
 }
 
 @media screen and (max-width: 850px) {
